@@ -8,7 +8,7 @@ private_subnet_cidr_1 = "10.10.1.0/24"
 
 # Set labels for all resources that support them
 labels = {
-  customer    = "happygears"
+  customer    = "example-customer"
   component   = "gcp-test"
   environment = "test"
   source      = "terraform"
