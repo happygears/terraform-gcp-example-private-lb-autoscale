@@ -2,7 +2,7 @@
 
 # Create web server template
 resource "google_compute_instance_template" "web_server" {
-  name                 = "${var.app_name}-${var.app_environment}-web-server-template"
+  name                 = "${var.app_name}-${var.app_environment}-web-server-template-${formatdate("YYYYMMDDhhmm", timestamp())}"
   description          = "This template is used to create web server instances running Apache"
   instance_description = "Web Server running Apache"
   can_ip_forward       = false
@@ -28,6 +28,7 @@ resource "google_compute_instance_template" "web_server" {
 
   lifecycle {
     create_before_destroy = true
+    ignore_changes        = [name]
   }
 
   metadata_startup_script = "sudo apt-get update; sudo apt-get install -yq build-essential apache2"
