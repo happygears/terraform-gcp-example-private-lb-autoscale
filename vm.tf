@@ -7,7 +7,7 @@ resource "google_compute_instance_template" "web_server" {
   instance_description = "Web Server running Apache"
   can_ip_forward       = false
   machine_type         = "g1-small"
-  tags                 = ["ssh","http"]
+  tags                 = ["ssh", "http"]
 
   scheduling {
     automatic_restart   = true
@@ -18,6 +18,7 @@ resource "google_compute_instance_template" "web_server" {
     source_image = "ubuntu-os-cloud/ubuntu-1804-lts"
     auto_delete  = true
     boot         = true
+    labels       = var.labels
   }
 
   network_interface {
@@ -30,4 +31,6 @@ resource "google_compute_instance_template" "web_server" {
   }
 
   metadata_startup_script = "sudo apt-get update; sudo apt-get install -yq build-essential apache2"
+
+  labels = var.labels
 }
