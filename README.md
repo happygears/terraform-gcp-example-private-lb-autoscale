@@ -1,6 +1,6 @@
-# Deploying GCP VMs located in a private subnet, inside a managed instance group, with a load balancer and autoscaling using Terraform
+# Deploying GCP VMs located in a private subnet, inside regional managed instance group, with a load balancer and autoscaling using Terraform
 
-The script will deploy a load balancer with autoscaling and deploy Ubuntu server with Apache in private subnet, without public ip, inside regional managed instance group, using Terraform.
+The script will deploy a load balancer with autoscaling and deploy Ubuntu server with Apache in private subnet, without public ip, inside regional managed instance group, using Terraform. VMs are spread across zones.
 
 lb-managed.tf --> Create managed instance group, backend services and all components required by the load balancer 
 
